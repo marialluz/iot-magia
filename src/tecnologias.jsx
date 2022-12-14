@@ -1,16 +1,17 @@
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import React from "react";
-import Arduino from "./assets/images/arduino.png"
-import ReactLogo from "./assets/images/react.png"
-import Tailwind from "./assets/images/tailwind.jpg"
-import Thing from "./assets/images/thingspeak.png"
+import Arduino from "./assets/images/arduino.png";
+import ReactLogo from "./assets/images/react.png";
+import Tailwind from "./assets/images/tailwind.jpg";
+import Thing from "./assets/images/thingspeak.png";
+import { Link } from "react-router-dom";
+
 
 const navigation = [
   { name: "Estação MeteorolóGica", href: "/", current: false },
   { name: "Componentes Eletrônicos", href: "/componentes", current: false },
   { name: "Tecnologias", href: "/tecnologias", current: true },
   { name: "Alunas", href: "/alunas", current: false },
-
 ];
 
 function classNames(...classes) {
@@ -37,9 +38,9 @@ export default function Componentes() {
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
                         {navigation.map((item) => (
-                          <a
+                          <Link
                             key={item.name}
-                            href={item.href}
+                            to={item.href}
                             className={classNames(
                               item.current
                                 ? "bg-gray-900 text-white"
@@ -49,7 +50,7 @@ export default function Componentes() {
                             aria-current={item.current ? "page" : undefined}
                           >
                             {item.name}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -74,24 +75,48 @@ export default function Componentes() {
               <div className="h-96 rounded-lg border-4 border-dashed border-gray-200">
                 <div className="grid gap-8 grid-cols-2 grid-rows-2 mt-4">
                   <div className="flex-col items-center justify-center">
-                    <img src={Arduino} alt="Logo arduino" className="w-32 mx-auto" />
-                    <p className="text-center mt-2">Plataforma de prototipagem eletrônica</p>
+                    <img
+                      src={Arduino}
+                      alt="Logo arduino"
+                      className="w-32 mx-auto"
+                    />
+                    <p className="text-center mt-2">
+                      Plataforma de prototipagem eletrônica
+                    </p>
                   </div>
                   <div className="flex-col items-center justify-center">
-                    <img src={ReactLogo} alt="Logo react" className="w-36 mx-auto" />
-                    <p className="text-center mt-2">Biblioteca front-end JavaScript</p>
+                    <img
+                      src={ReactLogo}
+                      alt="Logo react"
+                      className="w-36 mx-auto"
+                    />
+                    <p className="text-center mt-2">
+                      Biblioteca front-end JavaScript
+                    </p>
                   </div>
                   {/* <div className="flex-col items-center justify-center">
                     <img src={Bmp} alt="BMP180" className="w-36 mx-auto" />
                     <p className="text-center">Sensor de Temperatura e Pressão</p>
                   </div> */}
                   <div className="flex-col items-center justify-center">
-                    <img src={Tailwind} alt="Logo Tailwind" className="w-48 mx-auto" />
-                    <p className="text-center">Estrutura CSS de código aberto</p>
+                    <img
+                      src={Tailwind}
+                      alt="Logo Tailwind"
+                      className="w-48 mx-auto"
+                    />
+                    <p className="text-center">
+                      Estrutura CSS de código aberto
+                    </p>
                   </div>
                   <div className="flex-col items-center justify-center">
-                    <img src={Thing} alt="Logo ThingSpeak" className="w-36 mx-auto" />
-                    <p className="text-center mt-2">Software de comunicação Wifi</p>
+                    <img
+                      src={Thing}
+                      alt="Logo ThingSpeak"
+                      className="w-36 mx-auto"
+                    />
+                    <p className="text-center mt-2">
+                      Software de comunicação Wifi
+                    </p>
                   </div>
                 </div>
               </div>

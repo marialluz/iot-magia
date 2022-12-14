@@ -4,6 +4,8 @@ import Dht from "./assets/images/dht11.jpg";
 import Esp from "./assets/images/esp32.jpg";
 import Jumpers from "./assets/images/jumpers.jpg";
 import Mini from "./assets/images/miniprotoboard.jpg";
+import { Link } from "react-router-dom";
+
 
 const navigation = [
   { name: "Estação MeteorolóGica", href: "/", current: false },
@@ -36,9 +38,9 @@ export default function Componentes() {
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
                         {navigation.map((item) => (
-                          <a
+                          <Link
                             key={item.name}
-                            href={item.href}
+                            to={item.href}
                             className={classNames(
                               item.current
                                 ? "bg-gray-900 text-white"
@@ -48,7 +50,7 @@ export default function Componentes() {
                             aria-current={item.current ? "page" : undefined}
                           >
                             {item.name}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -78,19 +80,31 @@ export default function Componentes() {
                   </div>
                   <div className="flex-col items-center justify-center">
                     <img src={Dht} alt="DHT11" className="w-36 mx-auto" />
-                    <p className="text-center">Sensor de Temperatura e Umidade</p>
+                    <p className="text-center">
+                      Sensor de Temperatura e Umidade
+                    </p>
                   </div>
                   {/* <div className="flex-col items-center justify-center">
                     <img src={Bmp} alt="BMP180" className="w-36 mx-auto" />
                     <p className="text-center">Sensor de Temperatura e Pressão</p>
                   </div> */}
                   <div className="flex-col items-center justify-center">
-                    <img src={Jumpers} alt="Fios jumpers" className="w-36 mx-auto" />
+                    <img
+                      src={Jumpers}
+                      alt="Fios jumpers"
+                      className="w-36 mx-auto"
+                    />
                     <p className="text-center">Fios para realizar conexões</p>
                   </div>
                   <div className="flex-col items-center justify-center">
-                    <img src={Mini} alt="Mini protoboard" className="w-36 mx-auto" />
-                    <p className="text-center">Placa para auxiliar nas conexões</p>
+                    <img
+                      src={Mini}
+                      alt="Mini protoboard"
+                      className="w-36 mx-auto"
+                    />
+                    <p className="text-center">
+                      Placa para auxiliar nas conexões
+                    </p>
                   </div>
                 </div>
               </div>

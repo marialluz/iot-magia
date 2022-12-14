@@ -1,6 +1,5 @@
-import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 const navigation = [
   { name: "Estação MeteorolóGica", href: "/", current: true },
@@ -33,9 +32,9 @@ export default function iot() {
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
                         {navigation.map((item) => (
-                          <a
+                          <Link
                             key={item.name}
-                            href={item.href}
+                            to={item.href}
                             className={classNames(
                               item.current
                                 ? "bg-gray-900 text-white"
@@ -45,7 +44,7 @@ export default function iot() {
                             aria-current={item.current ? "page" : undefined}
                           >
                             {item.name}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -59,7 +58,8 @@ export default function iot() {
         <header className="bg-white shadow">
           <div className="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
             <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-              Estação <span className="text-indigo-400">M</span>eteoroló<span className="text-indigo-400">G</span>ica
+              Estação <span className="text-indigo-400">M</span>eteoroló
+              <span className="text-indigo-400">G</span>ica
             </h1>
           </div>
         </header>
@@ -68,24 +68,25 @@ export default function iot() {
             <div className="px-4 py-6 sm:px-0">
               <div className="h-96 rounded-lg border-4 border-dashed border-gray-200">
                 <div className="flex justify-around mt-6">
-                <div className="">
-                  <h1 className="text-2xl font-bold tracking-tight text-gray-900 text-center mb-2">
-                    Umidade <span className="text-indigo-400">[DHT11]</span>
-                  </h1>
-                  <iframe
-                    className="w-[500px] h-72 border border-white p-1 bg-indigo-300 rounded-xl"
-                    src="https://thingspeak.com/channels/1980487/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=.&type=line"
-                  ></iframe>
-                </div>
-                <div className="">
-                  <h1 className="text-2xl font-bold tracking-tight text-gray-900 text-center mb-2 ">
-                    Temperatura <span className="text-indigo-400">[DHT11]</span>
-                  </h1>
-                  <iframe
-                    className="w-[500px] h-72 border border-white p-1 bg-indigo-300 rounded-xl"
-                    src="https://thingspeak.com/channels/1980487/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=.&type=line"
-                  ></iframe>
-                </div>
+                  <div className="">
+                    <h1 className="text-2xl font-bold tracking-tight text-gray-900 text-center mb-2">
+                      Umidade <span className="text-indigo-400">[DHT11]</span>
+                    </h1>
+                    <iframe
+                      className="w-[500px] h-72 border border-white p-1 bg-indigo-300 rounded-xl"
+                      src="https://thingspeak.com/channels/1980487/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=.&type=line"
+                    ></iframe>
+                  </div>
+                  <div className="">
+                    <h1 className="text-2xl font-bold tracking-tight text-gray-900 text-center mb-2 ">
+                      Temperatura{" "}
+                      <span className="text-indigo-400">[DHT11]</span>
+                    </h1>
+                    <iframe
+                      className="w-[500px] h-72 border border-white p-1 bg-indigo-300 rounded-xl"
+                      src="https://thingspeak.com/channels/1980487/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=.&type=line"
+                    ></iframe>
+                  </div>
                 </div>
               </div>
             </div>

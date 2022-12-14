@@ -1,6 +1,8 @@
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import Geo from "./assets/images/geogebra.jpg";
 import Madu from "./assets/images/maduu.jpg";
+import { Link } from "react-router-dom";
+
 
 const navigation = [
   { name: "Estação MeteorolóGica", href: "/", current: false },
@@ -33,9 +35,9 @@ export default function Alunas() {
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
                         {navigation.map((item) => (
-                          <a
+                          <Link
                             key={item.name}
-                            href={item.href}
+                            to={item.href}
                             className={classNames(
                               item.current
                                 ? "bg-gray-900 text-white"
@@ -45,7 +47,7 @@ export default function Alunas() {
                             aria-current={item.current ? "page" : undefined}
                           >
                             {item.name}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -80,8 +82,8 @@ export default function Alunas() {
                     />
                     <p className="mt-4 max-w-sm text-justify">
                       &nbsp;Geórgia Carin é aluna do 4° semestre de Ciências e
-                      tecnologia na UFRN. Atualmente é monitora de Pré-Cálculo e Cálculo
-                      1 na ECT.
+                      tecnologia na UFRN. Atualmente é monitora de Pré-Cálculo e
+                      Cálculo 1 na ECT.
                     </p>
                   </div>
                   <div className="flex-col items-center justify-center">
@@ -95,8 +97,8 @@ export default function Alunas() {
                     />
                     <p className="mt-4 max-w-sm text-justify">
                       &nbsp;Maria Eduarda Luz é aluna do 4° semestre de Ciências
-                      e tecnologia na UFRN. Atualmente faz iniciação tecnológica e faz
-                      estágio de desenvolvimento Web na Radix.
+                      e tecnologia na UFRN. Atualmente faz iniciação tecnológica
+                      e faz estágio de desenvolvimento Web na Radix.
                     </p>
                   </div>
                 </div>
